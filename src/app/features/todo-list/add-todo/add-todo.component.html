@@ -1,0 +1,15 @@
+<mat-form-field appearance="outline" class="full-width">
+  <input
+    matInput
+    placeholder="Add Todo"
+    (keypress)="onKeyPress($event)"
+    [formControl]="todoName"
+    required
+  />
+</mat-form-field>
+
+<div>
+  <button mat-flat-button (click)="onClickAdd()" color="primary">
+    Add Todo
+  </button>
+</div>

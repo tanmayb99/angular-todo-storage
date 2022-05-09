@@ -1,0 +1,13 @@
+.row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.full-width {
+  width: 100%;
+}
+
+:host ::ng-deep .mat-form-field-wrapper {
+  padding: 0;
+}

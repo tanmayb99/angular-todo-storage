@@ -1,0 +1,24 @@
+<form class="row" (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()">
+  <mat-checkbox
+    class="example-margin"
+    (change)="handleChange($event)"
+    [checked]="isCompleted"
+    [disabled]="isCompleted"
+  ></mat-checkbox>
+  <mat-form-field appearance="outline" class="full-width">
+    <input
+      matInput
+      placeholder="Add Todo"
+      (keypress)="onKeyPress($event)"
+      [formControl]="todoNameControl"
+    />
+  </mat-form-field>
+  <button
+    mat-icon-button
+    [style.visibility]="showDelete ? 'visible' : 'hidden'"
+    (click)="onClickRemove()"
+    [disabled]="isCompleted"
+  >
+    <mat-icon>delete</mat-icon>
+  </button>
+</form>

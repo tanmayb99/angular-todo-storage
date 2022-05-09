@@ -1,0 +1,20 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header h1 {
+  font-size: 1rem;
+}
+
+.no-todos {
+  padding: 1rem 0;
+}
+
+mat-icon {
+  cursor: pointer;
+}
+
+.todos {
+  padding: 1rem 0;
+}

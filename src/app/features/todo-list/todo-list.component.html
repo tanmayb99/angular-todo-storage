@@ -1,0 +1,48 @@
+<mat-card>
+  <div class="header">
+    <h1>My To Dos</h1>
+    <div class="action-items">
+      <mat-icon
+        aria-hidden="false"
+        aria-label="Sort icon"
+        mat-button
+        [matMenuTriggerFor]="menu"
+        >swap_vert</mat-icon
+      >
+      <mat-icon
+        aria-hidden="false"
+        aria-label="Add todo icon"
+        (click)="onClickAdd()"
+        >add</mat-icon
+      >
+
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="sortTodosByCreatedDate()">
+          Sort by Created Date
+        </button>
+        <button mat-menu-item (click)="sortTodosByCompletion()">
+          Sort by Done/Not Done
+        </button>
+      </mat-menu>
+    </div>
+  </div>
+  <mat-divider></mat-divider>
+
+  <div class="todos">
+    <ng-container *ngIf="todos$ | async as todos">
+      <ng-container *ngIf="!!todos.length; else noTodos">
+        <ng-container *ngFor="let todo of todos; let i = index">
+          <app-todo
+            [todo]="todo"
+            (update)="handleMarkAsComplete($event, i)"
+            (delete)="handleRemoveTodo(i)"
+          ></app-todo>
+        </ng-container>
+      </ng-container>
+    </ng-container>
+
+    <ng-template #noTodos>
+      <p class="no-todos">No todos found.</p>
+    </ng-template>
+  </div>
+</mat-card>
